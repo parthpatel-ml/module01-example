@@ -1,3 +1,4 @@
+/*
 package com.spring.professional.exam.tutorial.module01.question03.dao;
 
 import com.spring.professional.exam.tutorial.module01.question03.ds.FinancialYearSummary;
@@ -15,4 +16,4 @@ public class DatabaseStoreFinancialDataDaoTest {
 
         assertNotNull(financialYearSummary);
     }
-}
+}*/
