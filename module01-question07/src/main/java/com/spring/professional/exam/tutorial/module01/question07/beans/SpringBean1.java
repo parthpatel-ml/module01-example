@@ -12,44 +12,49 @@ public class SpringBean1 implements InitializingBean, DisposableBean {
     private SpringBean2 springBean2;
 
     public SpringBean1() {
-        System.out.println("\nCreating " + getClass().getSimpleName());
+        System.out.println("\nCreating 4: " + getClass().getSimpleName());
     }
 
+    @Autowired
+    public void SpringBean1(SpringBean2 bean2){
+        System.out.println("Extra 6 CI: settingProperty on \" + getClass().getSimpleName() + \" to inject \" + springBean2.getClass().getSimpleName()");
+        this.springBean2 = bean2;
+    }
     public void sayHello() {
-        System.out.println("\nHello\n");
+        System.out.println("\nSay Hello Method 5: \n");
     }
 
     @Autowired
     public void setSpringBean2(SpringBean2 springBean2) {
-        System.out.println("settingProperty on " + getClass().getSimpleName() + " to inject " + springBean2.getClass().getSimpleName());
+        System.out.println("6 SI: settingProperty on " + getClass().getSimpleName() + " to inject " + springBean2.getClass().getSimpleName());
         this.springBean2 = springBean2;
     }
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("@PostConstruct " + getClass().getSimpleName());
+        System.out.println("7: @PostConstruct " + getClass().getSimpleName());
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("@PreDestroy " + getClass().getSimpleName());
+        System.out.println("8: @PreDestroy " + getClass().getSimpleName());
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("InitializingBean::afterPropertiesSet " + getClass().getSimpleName());
+        System.out.println("9: InitializingBean::afterPropertiesSet " + getClass().getSimpleName());
     }
 
     @Override
     public void destroy() throws Exception {
-        System.out.println("DisposableBean::destroy " + getClass().getSimpleName());
+        System.out.println("10: DisposableBean::destroy " + getClass().getSimpleName());
     }
 
     private void initMethod() {
-        System.out.println("@Bean(initMethod) " + getClass().getSimpleName());
+        System.out.println("11: @Bean(initMethod) " + getClass().getSimpleName());
     }
 
     private void destroyMethod() {
-        System.out.println("@Bean(destroyMethod) " + getClass().getSimpleName());
+        System.out.println("12: @Bean(destroyMethod) " + getClass().getSimpleName());
     }
 }
