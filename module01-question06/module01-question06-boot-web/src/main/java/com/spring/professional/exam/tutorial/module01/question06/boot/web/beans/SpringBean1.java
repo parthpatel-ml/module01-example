@@ -3,6 +3,8 @@ package com.spring.professional.exam.tutorial.module01.question06.boot.web.beans
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PreDestroy;
+
 @Component
 public class SpringBean1 {
     private SpringBean2 springBean2;
@@ -26,5 +28,10 @@ public class SpringBean1 {
     public void setSpringBean3(SpringBean3 springBean3) {
         System.out.println(getClass().getSimpleName() + "::setSpringBean3");
         this.springBean3 = springBean3;
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("Bean 1 Destroy " + this.getClass().getSimpleName());
     }
 }
