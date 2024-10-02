@@ -1,5 +1,6 @@
 package com.spring.professional.exam.tutorial.module01.question10.annotations.beans;
 
+import com.spring.professional.exam.tutorial.module01.question10.annotations.beans.SUB.SpringBean2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

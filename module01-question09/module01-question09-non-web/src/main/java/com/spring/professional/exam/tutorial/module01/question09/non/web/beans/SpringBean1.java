@@ -9,6 +9,7 @@ public class SpringBean1 {
 
     public void sayHello() {
         System.out.println("Hello");
+        throw new RuntimeException();
     }
 
     @PreDestroy

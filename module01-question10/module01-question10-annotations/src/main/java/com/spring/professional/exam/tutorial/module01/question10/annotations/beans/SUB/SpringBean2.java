@@ -1,4 +1,4 @@
-package com.spring.professional.exam.tutorial.module01.question10.annotations.beans;
+package com.spring.professional.exam.tutorial.module01.question10.annotations.beans.SUB;
 
 import org.springframework.stereotype.Component;
 

@@ -9,6 +9,13 @@ import com.spring.professional.exam.tutorial.module01.question01.commons.report.
 import java.util.List;
 
 class EmployeesSalariesReportService {
+    // global or local object initialization
+    // both give same results.
+
+    /*EmployeeDao employeeDao = new EmployeeDao();
+    EmployeeSalaryCalculator employeeSalaryCalculator = new EmployeeSalaryCalculator();
+    PdfSalaryReport pdfSalaryReport = new PdfSalaryReport();*/
+
     void generateReport() {
         EmployeeDao employeeDao = new EmployeeDao();
         List<Employee> employees = employeeDao.findAll();
