@@ -7,6 +7,15 @@ import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan
 public class ApplicationConfiguration {
+    public ApplicationConfiguration() {
+        System.out.println(getClass().getSimpleName() + "::Constructor");
+    }
+
+    @Bean
+    public static CustomBeanFactoryPostProcessor factoryPostProcessor(){
+        return new CustomBeanFactoryPostProcessor();
+    }
+
     @Bean
     public static CustomBeanPostProcessor customBeanPostProcessor() {
         return new CustomBeanPostProcessor();

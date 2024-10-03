@@ -8,18 +8,24 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 public class SpringBean1 implements InitializingBean, DisposableBean {
-    /*@Autowired
-    private SpringBean2 springBean2;*/
+    @Autowired
+    private SpringBean2 springBean2;
 
     public SpringBean1() {
         System.out.println(getClass().getSimpleName() + "::Constructor");
-        //System.out.println(getClass().getSimpleName() + "::Field Autowire " + this.springBean2);
+        System.out.println(getClass().getSimpleName() + "::Field Autowire " + this.springBean2);
+    }
+
+    @Autowired
+    public SpringBean1(SpringBean2 springBean2) {
+        this.springBean2 = springBean2;
+        System.out.println(getClass().getSimpleName() + "::CI Autowire " + this.springBean2.getClass().getSimpleName());
     }
 
     @PostConstruct
     public void postConstruct() {
         System.out.println(getClass().getSimpleName() + "::@PostConstruct");
-        //System.out.println(getClass().getSimpleName() + "::Field Autowire " + this.springBean2);
+        System.out.println(getClass().getSimpleName() + "::Field Autowire " + this.springBean2.getClass().getSimpleName());
     }
 
     @Override
