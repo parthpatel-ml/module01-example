@@ -11,14 +11,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static com.spring.professional.exam.tutorial.module01.question17.service.ReportServiceTest04.REPORT_NAME;
+//import static com.spring.professional.exam.tutorial.module01.question17.service.ReportServiceTest04.REPORT_NAME;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.verify;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = ApplicationConfig.class)
-@TestPropertySource(properties = "report.global.name=" + REPORT_NAME)
+@TestPropertySource(properties = "report.global.name=" + ReportServiceTest04.REPORT_NAME)
 public class ReportServiceTest04 {
     static final String REPORT_NAME = "Mock_Report";
 
