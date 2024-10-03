@@ -8,7 +8,7 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:/app-defaults.properties")
 public class ApplicationConfiguration {
     @Bean
-    public static CustomBeanFactoryPostProcessor customerBeanFactoryPostProcessor() {
+    public CustomBeanFactoryPostProcessor customerBeanFactoryPostProcessor() {
         return new CustomBeanFactoryPostProcessor();
     }
 }

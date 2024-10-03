@@ -12,7 +12,7 @@ public class ApplicationConfiguration {
         return new CustomBeanPostProcessor();
     }
 
-    @Bean(initMethod = "initMethod")
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     public SpringBean1 springBean1() {
         return new SpringBean1();
     }

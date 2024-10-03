@@ -5,11 +5,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PropertyReadingBean {
-
     @Value("${app.env}")
     private String appEnv;
     @Value("${app.envid}")
     private String appEnvId;
+
+    public PropertyReadingBean() {
+        System.out.println("PropertyReadingBean construction");
+        System.out.println("::appEnv:: " + this.appEnv + " ::appEnvId:: " + this.appEnvId);
+    }
 
     public void printProperties() {
         System.out.println("app.env = " + appEnv);

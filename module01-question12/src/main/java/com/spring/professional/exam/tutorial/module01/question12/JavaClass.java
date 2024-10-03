@@ -3,8 +3,7 @@ package com.spring.professional.exam.tutorial.module01.question12;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
-public class SpringBean {
+public class JavaClass {
 
     @Value("${db.host}")
     private String dbHost;
@@ -22,10 +21,8 @@ public class SpringBean {
         System.out.println("JAVA_HOME = " + javaHome);
     }
 
-    public SpringBean() {
-        System.out.println("db.host = " + dbHost);
-        System.out.println("app.envid = " + appEndId);
-        System.out.println("external.service = " + externalService);
-        System.out.println("JAVA_HOME = " + javaHome);
+    public static void main(String[] args) {
+        JavaClass obj = new JavaClass();
+        obj.printProperties();
     }
 }
