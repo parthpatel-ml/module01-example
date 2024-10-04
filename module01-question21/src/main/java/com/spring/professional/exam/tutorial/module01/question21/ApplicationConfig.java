@@ -13,7 +13,9 @@ public class ApplicationConfig {
     @Bean(initMethod = "init")
     @Autowired
     public SpringBean1 springBean1(SpringBean2 springBean2, SpringBean3 springBean3rd) {
-        return new SpringBean1(springBean2, springBean3rd);
+        return new SpringBean1(springBean2, springBean3rd); //  @Bean(name = "springBean3rd")
+        // even you can't annotate SpringBean3A class as a @Component("springBean3rd") and use it here.
+        // only need to use @bean method.
     }
 
     @Bean(destroyMethod = "destroy")
