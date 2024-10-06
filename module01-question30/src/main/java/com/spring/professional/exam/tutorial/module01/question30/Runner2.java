@@ -26,5 +26,18 @@ public class Runner2 {
                 parser.parseExpression("@springBean1.casesMap.get('caseA')").getValue(evaluationContext)
         );
 
+        System.out.println(
+                parser.parseExpression("@springBean1.getCasesMap()").getValue(evaluationContext)
+        );
+        System.out.println(
+                parser.parseExpression("@springBean1.taxId").getValue(evaluationContext)
+        );
+        System.out.println(
+                parser.parseExpression("@springBean1.getTaxId()").getValue(evaluationContext)
+        );
+        System.out.println(
+                parser.parseExpression("@springBean2.getTaxValue()").getValue(evaluationContext)
+        );
+
     }
 }

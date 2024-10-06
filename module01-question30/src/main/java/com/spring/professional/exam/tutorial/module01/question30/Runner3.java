@@ -11,8 +11,17 @@ public class Runner3 {
                 new SpelParserConfiguration(SpelCompilerMode.IMMEDIATE, Runner3.class.getClassLoader())
         );
 
+
         System.out.println(parser.parseExpression("'Hello'.concat(' world!')").getValue());
         System.out.println(parser.parseExpression("'2 + 2 equals = '.concat(2 + 2)").getValue());
         System.out.println(parser.parseExpression("new String('Wall Street').toUpperCase()").getValue());
+
+        System.out.println(parser.parseExpression("@springBean1.getCasesMap()").getValue());
+
+        System.out.println(parser.parseExpression("@springBean1.taxId").getValue());
+
+        System.out.println(parser.parseExpression("@springBean1.getTaxId()").getValue());
+
+        System.out.println(parser.parseExpression("@springBean2.getTaxValue()").getValue());
     }
 }

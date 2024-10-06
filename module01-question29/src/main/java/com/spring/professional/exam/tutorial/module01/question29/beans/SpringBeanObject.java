@@ -4,12 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-@Component
-public class SpringBean1 {
+
+public class SpringBeanObject {
+    public SpringBeanObject() {
+    }
+
     @Value("John")
     private String name;
 
@@ -51,10 +55,7 @@ public class SpringBean1 {
     @Value("#{${app.cases.map}}")
     private Map<String, Integer> casesMap;
 
-    @Value("#{springBean2.taxId}")
-    private int taxId;
-
-    public SpringBean1(@Value("#{'${app.manager.name}'.toUpperCase()}") String managerName) {
+    public SpringBeanObject(@Value("#{'${app.manager.name}'.toUpperCase()}") String managerName) {
         this.managerName = managerName;
     }
 
@@ -63,19 +64,6 @@ public class SpringBean1 {
         this.supportContactMail = supportContactMail;
     }
 
-    /*@Value("${app.support.phone}")
-    public void setSupportPhoneAndAddress(String supportPhone, @Value("${app.support.address}") String supportAddress) {
-        this.supportPhone = supportPhone;
-        this.supportAddress = supportAddress;
-    }*/
-
-    /*@Value("${app.support.phone}")
-    public void setSupportPhoneAndAddress(String supportPhone, String supportAddress) {
-        this.supportPhone = supportPhone;
-        this.supportAddress = supportAddress;
-    }*/
-
-    // You can't remove @Autowired from here
     @Autowired
     public void setSupportPhoneAndAddress(@Value("${app.support.phone}") String supportPhone, @Value("${app.support.address}") String supportAddress) {
         this.supportPhone = supportPhone;
@@ -142,7 +130,24 @@ public class SpringBean1 {
         return casesMap;
     }
 
-    public int getTaxId() {
-        return taxId;
+    public static void main(String[] args) {
+        SpringBeanObject object = new SpringBeanObject();
+        System.out.println("getName = " + object.getName());
+        /*System.out.println("getStreetName = " + object.getStreetName());
+        System.out.println("isAccountExists = " + object.isAccountExists());
+        System.out.println("getIdNumber = " + object.getIdNumber());
+        System.out.println("getAccountBalance = " + object.getAccountBalance());
+        System.out.println("getDepartmentId = " + object.getDepartmentId());
+        System.out.println("getDepartmentName = " + object.getDepartmentName());
+        System.out.println("getManagerName = " + object.getManagerName());
+        System.out.println("getSupportContactMail = " + object.getSupportContactMail());
+        System.out.println("getSupportPhone = " + object.getSupportPhone());
+        System.out.println("getSupportAddress = " + object.getSupportAddress());
+        System.out.println("getDependentDepartments = " + Arrays.toString(object.getDependentDepartments()));
+        System.out.println("getCasesIds = " + object.getCasesIds());
+        System.out.println("getCasesSet = " + object.getCasesSet());
+        System.out.println("getCasesMap = " + object.getCasesMap());
+*/
+
     }
 }
