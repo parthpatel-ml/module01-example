@@ -10,8 +10,12 @@ public class Runner {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.registerShutdownHook();
 
-        //context.getEnvironment().setActiveProfiles("profile1", "profile2", "profile3");
+        // context.getEnvironment().setActiveProfiles("profile1", "profile2", "profile3");
         // -Dspring.profiles.active="profile1,profile2,profile3"
+        // to get getEnvironment().getActiveProfiles() in other way around
+
+        // for ${app.vm.property} set value in vm options
+        // for ${app.env.property} set env-variables in VM options.
 
         context.register(ApplicationConfiguration.class);
         context.refresh();
